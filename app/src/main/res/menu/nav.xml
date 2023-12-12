@@ -3,9 +3,15 @@
 
     <item
         android:id="@+id/nav_main"
-        android:title="@string/main"
         android:checkable="true"
-        android:checked="true" />
+        android:checked="true"
+        android:title="@string/main" />
+
+    <item
+        android:id="@+id/nav_trigger_networking"
+        android:checkable="true"
+        android:title="Networking" />
+
 
     <group
         android:id="@+id/nav_group_triggers"
@@ -31,7 +37,7 @@
 
     <item
         android:id="@+id/nav_recast"
-        android:title="@string/recast"
-        android:checkable="true" />
+        android:checkable="true"
+        android:title="@string/recast" />
 
 </menu>

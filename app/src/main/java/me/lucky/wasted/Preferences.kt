@@ -18,12 +18,17 @@ class Preferences(ctx: Context, encrypted: Boolean = true) {
         private const val SECRET = "secret"
         private const val WIPE_DATA = "wipe_data"
         private const val WIPE_EMBEDDED_SIM = "wipe_embedded_sim"
+        private const val WIPE_USB = "wipe_embedded_sim"
+
+        private const val TOGGLE_NETWORKING = "wipe_embedded_sim"
+
 
         private const val RECAST_ENABLED = "recast_enabled"
         private const val RECAST_ACTION = "recast_action"
         private const val RECAST_RECEIVER = "recast_receiver"
         private const val RECAST_EXTRA_KEY = "recast_extra_key"
         private const val RECAST_EXTRA_VALUE = "recast_extra_value"
+
 
         private const val TRIGGERS = "triggers"
         private const val TRIGGER_LOCK_COUNT = "trigger_lock_count"
@@ -76,10 +81,18 @@ class Preferences(ctx: Context, encrypted: Boolean = true) {
     var isWipeData: Boolean
         get() = prefs.getBoolean(WIPE_DATA, false)
         set(value) = prefs.edit { putBoolean(WIPE_DATA, value) }
+    var toggleNetworking: Boolean
+        get() = prefs.getBoolean(TOGGLE_NETWORKING, false)
+        set(value) = prefs.edit { putBoolean(TOGGLE_NETWORKING, value) }
 
     var isWipeEmbeddedSim: Boolean
         get() = prefs.getBoolean(WIPE_EMBEDDED_SIM, false)
         set(value) = prefs.edit { putBoolean(WIPE_EMBEDDED_SIM, value) }
+
+    var wipeOnUSB: Boolean
+        get() = prefs.getBoolean(WIPE_USB, false)
+        set(value) = prefs.edit { putBoolean(WIPE_USB, value) }
+
 
     var triggerLockCount: Int
         get() = prefs.getInt(

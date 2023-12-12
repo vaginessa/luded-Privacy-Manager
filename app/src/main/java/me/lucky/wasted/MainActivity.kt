@@ -140,6 +140,7 @@ open class MainActivity : AppCompatActivity() {
 
     private fun getFragment(id: Int) = when (id) {
         R.id.nav_main -> MainFragment()
+        R.id.nav_trigger_networking -> NetworkingFragment()
         R.id.nav_trigger_tile -> TileFragment()
         R.id.nav_trigger_notification -> NotificationFragment()
         R.id.nav_trigger_lock -> LockFragment()

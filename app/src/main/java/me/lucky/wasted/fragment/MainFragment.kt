@@ -7,15 +7,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
-import java.util.*
-
 import me.lucky.wasted.Preferences
 import me.lucky.wasted.R
 import me.lucky.wasted.Utils
 import me.lucky.wasted.admin.DeviceAdminManager
 import me.lucky.wasted.databinding.FragmentMainBinding
+import java.util.*
+
 
 class MainFragment : Fragment() {
     private lateinit var binding: FragmentMainBinding
@@ -36,6 +38,7 @@ class MainFragment : Fragment() {
         binding = FragmentMainBinding.inflate(inflater, container, false)
         init()
         setup()
+
         return binding.root
     }
 
@@ -62,11 +65,23 @@ class MainFragment : Fragment() {
             wipeData.isChecked = prefs.isWipeData
             wipeEmbeddedSim.isChecked = prefs.isWipeEmbeddedSim
             wipeEmbeddedSim.isEnabled = wipeData.isChecked
+            wipeOnUSB.isChecked = prefs.wipeOnUSB
+            wipeData.isEnabled = wipeOnUSB.isChecked || wipeFromCode.isChecked
             toggle.isChecked = prefs.isEnabled
         }
     }
 
     private fun setup() = binding.apply {
+        wipeOnUSB.setOnCheckedChangeListener { _, isChecked ->
+            prefs.wipeOnUSB = isChecked
+            wipeData.isEnabled = isChecked || wipeFromCode.isChecked
+        }
+
+        wipeFromCode.setOnCheckedChangeListener { _, isChecked ->
+            wipeData.isEnabled = isChecked || wipeFromCode.isChecked
+        }
+
+
         wipeData.setOnCheckedChangeListener { _, isChecked ->
             prefs.isWipeData = isChecked
             wipeEmbeddedSim.isEnabled = isChecked
