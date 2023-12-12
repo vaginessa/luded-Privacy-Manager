@@ -1,6 +1,6 @@
 # Wasted
 
-Lock a device and wipe its data on emergency.
+The Aim with this fork of the original Wasted project is to combine CalyX Firewall with the wasted app in order to make a user friendly security UI
 
 [<img 
      src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
