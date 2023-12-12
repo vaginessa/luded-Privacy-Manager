@@ -2,8 +2,10 @@ package me.lucky.wasted.fragment
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +20,7 @@ import me.lucky.wasted.Utils
 import me.lucky.wasted.admin.DeviceAdminManager
 import me.lucky.wasted.databinding.FragmentNetworkingBinding
 import java.util.*
+import java.util.jar.Manifest
 
 
 class NetworkingFragment : Fragment() {
@@ -57,9 +60,9 @@ class NetworkingFragment : Fragment() {
         prefs = Preferences(ctx)
         prefsdb = Preferences(ctx, encrypted = false)
         binding.apply {
-            routingmodeForcetor.isEnabled = prefs.toggleNetworking
-            routingmodeForcevpn.isEnabled = prefs.toggleNetworking
-            routingmodeForcevpnandtor.isEnabled = prefs.toggleNetworking
+            routingmodeForcetor.isEnabled = false;
+            routingmodeForcevpn.isEnabled = false;
+            routingmodeForcevpnandtor.isEnabled = false;
 
         }
     }
@@ -70,6 +73,37 @@ class NetworkingFragment : Fragment() {
             routingmodeForcetor.isEnabled = prefs.toggleNetworking
             routingmodeForcevpn.isEnabled = prefs.toggleNetworking
             routingmodeForcevpnandtor.isEnabled = prefs.toggleNetworking
+
+            Intent().also { intent ->
+                if(isChecked) {
+                    intent.setAction("org.calyxos.datura.action.enable")
+                } else {
+                    intent.setAction("org.calyxos.datura.action.disable")
+                }
+                ctx.sendBroadcast(intent, "org.calyxos.datura.permission.CHANGE_SETTINGS")
+            }
+        }
+
+        routingmodeForcetor.setOnCheckedChangeListener {_, isChecked ->
+            if(isChecked && prefs.toggleNetworking){
+                Intent().also { intent ->
+                    Log.d("TAG", "Send Force Tor")
+                    intent.setAction("org.calyxos.datura.action.forceTor")
+                    intent.setPackage("org.calyxos.datura")
+                    ctx.sendBroadcast(intent)
+                }
+            }
+        }
+
+        routingmodeForcevpn.setOnCheckedChangeListener {_, isChecked ->
+            if(isChecked && prefs.toggleNetworking) {
+                Intent().also { intent ->
+                    Log.d("TAG", "Send Force VPN")
+
+                    intent.setAction("org.calyxos.datura.action.forceVPN")
+                    ctx.sendBroadcast(intent, "org.calyxos.datura.permission.CHANGE_SETTINGS")
+                }
+            }
         }
     }
 }
