@@ -15,11 +15,6 @@ The Aim of this fork of the original Wasted project is to combine
 
 With a more user-friendly interface which allows someone not so technical to configure privacy-friendly features.
 
-<img 
-     src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" 
-     width="30%" 
-     height="30%">
-
 You can use [PanicKit](https://guardianproject.info/code/panickit/), tile, shortcut or send a 
 message with a secret code. On trigger, using 
 [Device Administration API](https://developer.android.com/guide/topics/admin/device-admin), it 
