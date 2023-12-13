@@ -1,12 +1,4 @@
 # Wasted
-
-The Aim of this fork of the original Wasted project is to combine 
-- [CalyX Firewall](https://gitlab.com/MarleyPlant/platform-packages-apps-securityfeatures)
-- Wasted
-- [Duress](https://github.com/x13a/Duress)
-
-With a more user-friendly interface which allows someone not so technical to configure privacy-friendly features.
-
 [<img 
      src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
      alt="Get it on F-Droid"
@@ -15,6 +7,13 @@ With a more user-friendly interface which allows someone not so technical to con
       src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" 
       alt="Get it on Google Play" 
       height="80">](https://play.google.com/store/apps/details?id=me.lucky.wasted)
+
+The Aim of this fork of the original Wasted project is to combine 
+- [CalyX Firewall](https://gitlab.com/MarleyPlant/platform-packages-apps-securityfeatures)
+- Wasted
+- [Duress](https://github.com/x13a/Duress)
+
+With a more user-friendly interface which allows someone not so technical to configure privacy-friendly features.
 
 <img 
      src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" 
@@ -52,6 +51,7 @@ Be aware that the app does not work in _safe mode_.
 * DEVICE_ADMIN - lock and optionally wipe a device
 * FOREGROUND_SERVICE - receive lock and USB state events
 * RECEIVE_BOOT_COMPLETED - persist lock job and foreground service across reboots
+* org.calyxos.datura.permission.CHANGE_SETTINGS - Update Settings For [CalyX Firewall](https://gitlab.com/MarleyPlant/platform-packages-apps-securityfeatures)
 
 ## Localization
 
