@@ -1,20 +1,19 @@
-# Eluded Privacy Manager
-
-The Aim with this fork of the original Wasted project is to combine CalyX Firewall with the wasted app in order to make a user friendly security UI
-
+# Calyx Security UI
 [<img 
      src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
      alt="Get it on F-Droid"
-     height="80">](https://f-droid.org/packages/com.eluded.privacymanager/)
+     height="80">](https://f-droid.org/packages/me.lucky.wasted/)
 [<img 
       src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" 
       alt="Get it on Google Play" 
-      height="80">](https://play.google.com/store/apps/details?id=com.eluded.privacymanager)
+      height="80">](https://play.google.com/store/apps/details?id=me.lucky.wasted)
 
-<img 
-     src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" 
-     width="30%" 
-     height="30%">
+The Aim of this fork of the original Wasted project is to combine 
+- [CalyX Firewall](https://gitlab.com/MarleyPlant/platform-packages-apps-securityfeatures)
+- Wasted
+- [Duress](https://github.com/x13a/Duress)
+
+With a more user-friendly interface which allows someone not so technical to configure privacy-friendly features.
 
 You can use [PanicKit](https://guardianproject.info/code/panickit/), tile, shortcut or send a 
 message with a secret code. On trigger, using 
@@ -38,8 +37,8 @@ Be aware that the app does not work in _safe mode_.
 
 ## Broadcast
 
-* action: `com.eluded.privacymanager.action.TRIGGER`
-* receiver: `com.eluded.privacymanager/.TriggerReceiver`
+* action: `me.lucky.wasted.action.TRIGGER`
+* receiver: `me.lucky.wasted/.TriggerReceiver`
 * also you have to send a secret code from Wasted with the key: `code`
 
 ## Permissions
@@ -47,6 +46,7 @@ Be aware that the app does not work in _safe mode_.
 * DEVICE_ADMIN - lock and optionally wipe a device
 * FOREGROUND_SERVICE - receive lock and USB state events
 * RECEIVE_BOOT_COMPLETED - persist lock job and foreground service across reboots
+* org.calyxos.datura.permission.CHANGE_SETTINGS - Update Settings For [CalyX Firewall](https://gitlab.com/MarleyPlant/platform-packages-apps-securityfeatures)
 
 ## Localization
 
