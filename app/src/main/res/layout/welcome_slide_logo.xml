@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_screen2">
+    android:background="@color/bg_screen1">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -11,26 +11,21 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Setup Secret Code"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/slide_title"
-            android:textStyle="bold" />
+        <ImageView
+            android:layout_width="@dimen/img_width_height"
+            android:layout_height="100dp"
+            android:src="@drawable/logo" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:paddingLeft="@dimen/desc_padding"
             android:paddingRight="@dimen/desc_padding"
-            android:text="aowghoawehgoshgo"
+            android:text="Privacy Manager"
             android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/slide_desc" />
+            android:textColor="@android:color/black"
+            android:textSize="20dp"
+            android:textFontWeight="80"/>
 
     </LinearLayout>
-
-
 </RelativeLayout>

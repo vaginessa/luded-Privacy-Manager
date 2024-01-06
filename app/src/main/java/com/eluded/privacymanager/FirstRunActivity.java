@@ -10,14 +10,22 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.util.Arrays;
+import java.util.UUID;
 
 public class FirstRunActivity extends AppCompatActivity {
 
@@ -53,14 +61,13 @@ public class FirstRunActivity extends AppCompatActivity {
 		btnSkip = (Button) findViewById(R.id.btn_skip);
 		btnNext = (Button) findViewById(R.id.btn_next);
 
-
 		// layouts of all welcome sliders
 		// add few more layouts if you want
 		layouts = new int[]{
-				R.layout.welcome_slide_first,
-				R.layout.welcome_slide_second,
+				R.layout.welcome_slide_logo,
+				R.layout.welcome_slide_disclaimer,
 				R.layout.fragment_welcome_slide_panicwipe,
-				R.layout.welcome_slide_third
+				R.layout.welcome_slide_networking
 		};
 
 		// adding bottom dots
@@ -72,6 +79,7 @@ public class FirstRunActivity extends AppCompatActivity {
 		myViewPagerAdapter = new MyViewPagerAdapter();
 		viewPager.setAdapter(myViewPagerAdapter);
 		viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
+
 
 		btnSkip.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -85,7 +93,21 @@ public class FirstRunActivity extends AppCompatActivity {
 			public void onClick(View v) {
 				// checking for last page
 				// if last page home screen will be launched
+				if (layouts[getItem(0)] == R.layout.fragment_welcome_slide_panicwipe) {
+
+					CheckBox wipeusb = 	viewPager.findViewById(R.id.checkbox_wipeusb);
+					CheckBox wipecode = viewPager.findViewById(R.id.checkbox_wipecode);
+					Boolean shouldAddSecretCodeScreen = (wipecode.isChecked() || wipeusb.isChecked());
+					Log.d("VIEW: ", shouldAddSecretCodeScreen.toString());
+
+					if(shouldAddSecretCodeScreen) {
+//						layouts = Arrays.copyOf(layouts, layouts.length + 1);
+//						layouts[layouts.length - 1] = R.layout.welcome_slide_secretcode;
+					}
+				}
+
 				int current = getItem(+1);
+
 				if (current < layouts.length) {
 					// move to next screen
 					viewPager.setCurrentItem(current);
@@ -180,6 +202,28 @@ public class FirstRunActivity extends AppCompatActivity {
 			layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
 			View view = layoutInflater.inflate(layouts[position], container, false);
+			// Check if the layout is R.layout.welcome_slide_secretcode
+			if (layouts[position] == R.layout.welcome_slide_secretcode) {
+				// Set text to the secretcode EditText
+				EditText secretCodeEditText = view.findViewById(R.id.secretcode); // replace R.id.secretcode with the actual ID
+				String newText = "Your new text";
+				secretCodeEditText.setText(UUID.randomUUID().toString());
+			}
+
+			if(layouts[position] == R.layout.welcome_slide_networking) {
+				Spinner spinner = view.findViewById(R.id.networking_mode);
+				// Create an ArrayAdapter using the string array and a default spinner layout.
+				ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+						view.getContext(),
+						R.array.networking_modes,
+						android.R.layout.simple_spinner_item
+				);
+// Specify the layout to use when the list of choices appears.
+				adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+// Apply the adapter to the spinner.
+				spinner.setAdapter(adapter);
+			}
+
 			container.addView(view);
 
 			return view;

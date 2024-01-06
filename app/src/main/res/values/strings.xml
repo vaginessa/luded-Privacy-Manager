@@ -53,4 +53,10 @@
     <string name="extra_value">extra value</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="networking_modes">
+        <item>TOR Only</item>
+        <item>VPN Only</item>
+        <item>TOR + VPN</item>
+    </string-array>
 </resources>

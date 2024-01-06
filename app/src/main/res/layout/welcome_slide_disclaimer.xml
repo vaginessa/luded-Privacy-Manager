@@ -26,5 +26,10 @@
             android:textColor="@android:color/white"
             android:textSize="@dimen/slide_desc" />
 
+        <CheckBox android:id="@+id/checkbox_disclaimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I Accept That I Use This Software At My Own Risk"/>
+
     </LinearLayout>
 </RelativeLayout>
