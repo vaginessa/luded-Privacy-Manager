@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="me.lucky.wasted">
+    package="com.eluded.privacymanager">
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -21,7 +21,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Wasted"
         android:dataExtractionRules="@xml/data_extraction_rules"
-        android:permission="org.calyxos.datura.permission.CHANGE_SETTINGS"
         tools:targetApi="s">
 
         <activity
@@ -30,7 +29,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+                <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -45,7 +44,6 @@
                 <action android:name="org.calyxos.datura.action.forceVPN"/>
                 <action android:name="org.calyxos.datura.action.forceTor"/>
                 <category android:name="android.intent.category.LAUNCHER" />
-                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
 
@@ -108,7 +106,7 @@
             android:exported="true"
             android:theme="@android:style/Theme.NoDisplay">
             <intent-filter>
-                <action android:name="me.lucky.wasted.action.TRIGGER" />
+                <action android:name="com.eluded.privacymanager.action.TRIGGER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -120,7 +118,7 @@
             android:exported="true"
             tools:ignore="ExportedReceiver">
             <intent-filter>
-                <action android:name="me.lucky.wasted.action.TRIGGER" />
+                <action android:name="com.eluded.privacymanager.action.TRIGGER" />
             </intent-filter>
         </receiver>
 

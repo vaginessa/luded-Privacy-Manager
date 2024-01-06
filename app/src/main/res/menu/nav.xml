@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+        <item android:title="Panic Options">
+            <menu>
+                <item
+                    android:id="@+id/nav_main"
+                    android:checkable="true"
+                    android:checked="true"
+                    android:title="@string/main" />
 
-    <item
-        android:id="@+id/nav_main"
-        android:checkable="true"
-        android:checked="true"
-        android:title="@string/main" />
+                <item
+                    android:id="@+id/nav_trigger_tile"
+                    android:title="@string/trigger_tile" />
 
-    <item
-        android:id="@+id/nav_trigger_networking"
-        android:checkable="true"
-        android:title="Networking" />
+                <item
+                    android:id="@+id/nav_trigger_notification"
+                    android:title="@string/trigger_notification" />
 
+                <item
+                    android:id="@+id/nav_trigger_lock"
+                    android:title="@string/trigger_lock" />
 
-    <group
-        android:id="@+id/nav_group_triggers"
-        android:checkableBehavior="all">
+                <item
+                    android:id="@+id/nav_trigger_application"
+                    android:title="@string/trigger_application" />
 
-        <item
-            android:id="@+id/nav_trigger_tile"
-            android:title="@string/trigger_tile" />
+                <item
+                    android:id="@+id/nav_recast"
+                    android:title="@string/recast" />
+            </menu>
+        </item>
 
-        <item
-            android:id="@+id/nav_trigger_notification"
-            android:title="@string/trigger_notification" />
-
-        <item
-            android:id="@+id/nav_trigger_lock"
-            android:title="@string/trigger_lock" />
-
-        <item
-            android:id="@+id/nav_trigger_application"
-            android:title="@string/trigger_application" />
-
+        <item android:title="Networking Options">
+            <menu>
+                <item
+                    android:id="@+id/nav_trigger_networking"
+                    android:title="Routing" />
+            </menu>
+        </item>
     </group>
-
-    <item
-        android:id="@+id/nav_recast"
-        android:checkable="true"
-        android:title="@string/recast" />
-
 </menu>
+

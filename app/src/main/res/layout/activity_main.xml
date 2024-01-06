@@ -40,6 +40,11 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:menu="@menu/nav" />
+        app:itemTextAppearance="@style/TextAppearance.Material3.LabelMedium"
+        app:subheaderTextAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        app:itemVerticalPadding="20dp"
+        app:menu="@menu/nav"
+        android:theme="@style/Theme.Wasted.NavMenu"
+        />
 
 </androidx.drawerlayout.widget.DrawerLayout>

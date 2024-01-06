@@ -7,7 +7,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "me.lucky.wasted"
+        applicationId "com.eluded.privacymanager"
         minSdk 23
         targetSdk 32
         versionCode 39

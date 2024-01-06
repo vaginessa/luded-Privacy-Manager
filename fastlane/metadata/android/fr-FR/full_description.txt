@@ -14,8 +14,8 @@ L'application fonctionne également dans le profil de travail. Utilisez Shelter 
 Seul un appareil chiffré peut garantir que les données ne seront pas récupérables.
 
 Diffusion:
-* action : me.lucky.wasted.action.TRIGGER
-* récepteur : me.lucky.wasted/.TriggerReceiver
+* action : com.eluded.privacymanager.action.TRIGGER
+* récepteur : com.eluded.privacymanager/.TriggerReceiver
 * vous devez également envoyer un code secret de Wasted avec la clé: code
 
 Autorisations:

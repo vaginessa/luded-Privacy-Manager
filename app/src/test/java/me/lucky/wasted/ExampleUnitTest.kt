@@ -1,4 +1,4 @@
-package me.lucky.wasted
+package com.eluded.privacymanager
 
 import org.junit.Test
 

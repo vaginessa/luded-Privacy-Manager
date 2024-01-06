@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Wasted</string>
+    <string name="app_name">Eluded Privacy Manager</string>
     <string name="wipe_data_checkbox">抹除資料</string>
     <string name="wipe_embedded_sim_checkbox">抹除eSIM</string>
     <string name="panic_app_dialog_title">確認緊急按鈕APP</string>

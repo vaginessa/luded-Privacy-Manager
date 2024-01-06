@@ -1,15 +1,15 @@
-# Wasted
+# Eluded Privacy Manager
 
 The Aim with this fork of the original Wasted project is to combine CalyX Firewall with the wasted app in order to make a user friendly security UI
 
 [<img 
      src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
      alt="Get it on F-Droid"
-     height="80">](https://f-droid.org/packages/me.lucky.wasted/)
+     height="80">](https://f-droid.org/packages/com.eluded.privacymanager/)
 [<img 
       src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" 
       alt="Get it on Google Play" 
-      height="80">](https://play.google.com/store/apps/details?id=me.lucky.wasted)
+      height="80">](https://play.google.com/store/apps/details?id=com.eluded.privacymanager)
 
 <img 
      src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" 
@@ -38,8 +38,8 @@ Be aware that the app does not work in _safe mode_.
 
 ## Broadcast
 
-* action: `me.lucky.wasted.action.TRIGGER`
-* receiver: `me.lucky.wasted/.TriggerReceiver`
+* action: `com.eluded.privacymanager.action.TRIGGER`
+* receiver: `com.eluded.privacymanager/.TriggerReceiver`
 * also you have to send a secret code from Wasted with the key: `code`
 
 ## Permissions

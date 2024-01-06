@@ -5,5 +5,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "Wasted"
+rootProject.name = "Privacy Manager"
 include ':app'

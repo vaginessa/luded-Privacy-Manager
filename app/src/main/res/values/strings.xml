@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Wasted</string>
+    <string name="app_name">Privacy Manager</string>
     <string name="wipe_data_checkbox">Wipe data</string>
     <string name="wipe_embedded_sim_checkbox">Wipe eSIM</string>
     <string name="panic_app_dialog_title">Confirm panic app</string>
@@ -24,7 +24,7 @@
     <string name="trigger_usb">USB</string>
     <string name="trigger_application">Application</string>
     <string name="copied_popup">Copied</string>
-    <string name="main">Main</string>
+    <string name="main">Panic Wipe</string>
     <string name="settings">Settings</string>
     <string name="edit">Edit</string>
     <string name="goto_button">GOTO</string>
@@ -51,4 +51,6 @@
     <string name="receiver">receiver</string>
     <string name="extra_key">extra key</string>
     <string name="extra_value">extra value</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
