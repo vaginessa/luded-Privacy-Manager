@@ -25,7 +25,7 @@ jobs:
       - name: Set Version
         uses: chkfung/android-version-actions@v1.1
         with:
-          gradlePath: app/build.gradle.kts
+          gradlePath: app/build.gradle
           versionName: "DEBUG - ${{ steps.short-sha.outputs.sha }}"
 
       - name: Build Debug APK
