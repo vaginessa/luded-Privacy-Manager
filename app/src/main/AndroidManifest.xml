@@ -11,6 +11,25 @@
     <uses-feature android:name="android.hardware.usb.host" android:required="false" />
     <uses-feature android:name="android.hardware.usb.accessory" android:required="false" />
 
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.MANAGE_NETWORK_POLICY"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.CONNECTIVITY_INTERNAL"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.NETWORK_STACK"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.NETWORK_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+
+
     <application
         android:allowBackup="false"
         android:fullBackupContent="false"
@@ -43,7 +62,6 @@
                 <action android:name="org.calyxos.datura.action.disable"/>
                 <action android:name="org.calyxos.datura.action.forceVPN"/>
                 <action android:name="org.calyxos.datura.action.forceTor"/>
-                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 

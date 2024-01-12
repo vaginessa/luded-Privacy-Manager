@@ -13,22 +13,34 @@
 
         <ImageView
             android:layout_width="@dimen/img_width_height"
-            android:layout_height="@dimen/img_width_height"
+            android:layout_height="200dp"
             android:src="@drawable/logo" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <ScrollView
+            android:id="@+id/SCROLLER_ID"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scrollbars="vertical"
+            android:fillViewport="true">
+
+            <TextView
+                android:id="@+id/TEXT_STATUS_ID"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:textColor="@color/black"
+                android:text="@string/disclaimer"/>
+        </ScrollView>
+
+        <Space
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/desc_padding"
-            android:paddingRight="@dimen/desc_padding"
-            android:text="Lotem Ipsem"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/slide_desc" />
+            android:layout_marginVertical="20dp" />
 
         <CheckBox android:id="@+id/checkbox_disclaimer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="I Accept That I Use This Software At My Own Risk"/>
 
     </LinearLayout>

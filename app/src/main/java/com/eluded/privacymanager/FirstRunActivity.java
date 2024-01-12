@@ -35,18 +35,17 @@ public class FirstRunActivity extends AppCompatActivity {
 	private TextView[] dots;
 	private int[] layouts;
 	private Button btnSkip, btnNext;
-//	private PrefManager prefManager;
+	private  Preferences prefs ;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		prefs = new Preferences(this, false);
 
-		// Checking for first time launch - before calling setContentView()
-//		prefManager = new PrefManager(this);
-//		if (!prefManager.isFirstTimeLaunch()) {
-//			launchHomeScreen();
-//			finish();
-//		}
+		if (!prefs.isFirstTimeLaunch()) {
+			launchHomeScreen();
+			finish();
+		}
 
 		// Making notification bar transparent
 //		if (Build.VERSION.SDK_INT >= 21) {
@@ -67,7 +66,8 @@ public class FirstRunActivity extends AppCompatActivity {
 				R.layout.welcome_slide_logo,
 				R.layout.welcome_slide_disclaimer,
 				R.layout.fragment_welcome_slide_panicwipe,
-				R.layout.welcome_slide_networking
+				R.layout.welcome_slide_networking,
+				R.layout.welcome_slide_secretcode
 		};
 
 		// adding bottom dots

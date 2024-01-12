@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_screen2">
+    android:background="@color/bg_screen1">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Setup Internet Routing"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="@dimen/slide_title"
             android:textStyle="bold" />
 
@@ -25,9 +25,9 @@
             android:layout_marginTop="20dp"
             android:paddingLeft="@dimen/desc_padding"
             android:paddingRight="@dimen/desc_padding"
-            android:text="aowghoawehgoshgo"
+            android:text="You can choose to connect to the internet via a number of different routes, these can be configured more in depth in settings later however if you'd like to apply a general preset then please select it below."
+            android:textColor="@color/black"
             android:textAlignment="center"
-            android:textColor="@android:color/white"
             android:textSize="@dimen/slide_desc" />
 
         <Space
@@ -37,7 +37,7 @@
 
         <Spinner
             android:id="@+id/networking_mode"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:popupBackground="@color/white"/>
 

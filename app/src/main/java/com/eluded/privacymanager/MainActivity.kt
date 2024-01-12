@@ -18,6 +18,8 @@ import com.google.android.material.textfield.TextInputLayout
 import com.eluded.privacymanager.databinding.ActivityMainBinding
 import com.eluded.privacymanager.fragment.*
 import com.eluded.privacymanager.trigger.shared.NotificationManager
+import android.Manifest.permission.INTERNET
+
 
 open class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -47,7 +49,7 @@ open class MainActivity : AppCompatActivity() {
 
     private fun init2() {
         NotificationManager(this).createNotificationChannels()
-        replaceFragment(MainFragment())
+        replaceFragment(Status())
     }
 
     private fun initBiometric(): Boolean {
@@ -139,6 +141,7 @@ open class MainActivity : AppCompatActivity() {
     }
 
     private fun getFragment(id: Int) = when (id) {
+        R.id.nav_status -> Status()
         R.id.nav_main -> MainFragment()
         R.id.nav_trigger_networking -> NetworkingFragment()
         R.id.nav_trigger_tile -> TileFragment()

@@ -53,6 +53,14 @@
     <string name="extra_value">extra value</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="disclaimer">
+This app is provided "as is" and "as available" without any representations or warranties, expressed or implied. The use of this app is at your own risk. We do not guarantee the accuracy, completeness, or suitability of the information and materials found or offered in this app. Your use of any information or materials in this app is entirely at your own risk, for which we shall not be liable.
+
+It shall be your own responsibility to ensure that any products, services, or information available through this app meet your specific requirements. We expressly disclaim liability for any errors or inaccuracies in the information or materials provided in this app, to the fullest extent permitted by law.
+
+This app may contain links to other apps or websites that are not under our control. We have no control over the nature, content, and availability of those sites. The inclusion of any links does not necessarily imply a recommendation or endorse the views expressed within them.
+
+Every effort is made to keep the app up and running smoothly. However, we take no responsibility for, and will not be liable for, the app being temporarily unavailable due to technical issues beyond our control.    </string>
 
     <string-array name="networking_modes">
         <item>TOR Only</item>

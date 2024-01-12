@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_status"
+        android:checkable="true"
+        android:checked="true"
+        android:title="Status" />
+
     <group>
         <item android:title="Panic Options">
             <menu>
                 <item
                     android:id="@+id/nav_main"
                     android:checkable="true"
-                    android:checked="true"
                     android:title="@string/main" />
 
                 <item

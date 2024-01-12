@@ -7,8 +7,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.Spinner
+import com.eluded.privacymanager.fragment.*
+
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import com.eluded.privacymanager.Preferences
@@ -81,6 +81,11 @@ class MainFragment : Fragment() {
             utils.updateForegroundRequiredEnabled()
         }
 
+        openSettings.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment, SettingsFragment())
+        }
+
         wipeFromCode.setOnCheckedChangeListener { _, isChecked ->
             wipeData.isEnabled = isChecked || wipeOnUSB.isChecked
             prefs.triggers =
@@ -101,6 +106,8 @@ class MainFragment : Fragment() {
         toggle.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) requestAdmin() else setOff()
         }
+
+
     }
 
     private fun setOn() {

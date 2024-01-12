@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_screen2">
+    android:background="@color/bg_screen1">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:text="Configure Panic Wipe"
             android:textAlignment="center"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="@dimen/slide_title"
             android:textStyle="bold" />
 
@@ -26,9 +26,9 @@
             android:layout_marginTop="20dp"
             android:paddingLeft="@dimen/desc_padding"
             android:paddingRight="@dimen/desc_padding"
-            android:text="aowghoawehgoshgo"
+            android:text="Select which trigger(s), if any at all that you'd like to use to perform a device reset."
             android:textAlignment="center"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="@dimen/slide_desc" />
 
         <Space
@@ -39,14 +39,14 @@
             android:theme="@style/Theme.Wasted.Checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:text="Wipe On USB Data Connection?"/>
 
         <CheckBox android:id="@+id/checkbox_wipecode"
             android:theme="@style/Theme.Wasted.Checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:text="Wipe Remotely With Secret Code?"/>
 
 

@@ -22,8 +22,8 @@
     </style>
 
     <style name="Theme.Wasted.Checkbox" parent="Widget.Material3.CompoundButton.CheckBox">
-        <item name="colorOnSurface">@color/white</item>
-        <item name="colorPrimary">@color/white</item>
+        <item name="colorOnSurface">@color/black</item>
+        <item name="colorPrimary">@color/black</item>
     </style>
 
     <style name="Theme.Wasted.CustomSpinner" parent="android:Widget.Spinner">
