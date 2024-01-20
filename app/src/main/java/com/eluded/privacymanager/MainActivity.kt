@@ -18,7 +18,6 @@ import com.google.android.material.textfield.TextInputLayout
 import com.eluded.privacymanager.databinding.ActivityMainBinding
 import com.eluded.privacymanager.fragment.*
 import com.eluded.privacymanager.trigger.shared.NotificationManager
-import android.Manifest.permission.INTERNET
 
 
 open class MainActivity : AppCompatActivity() {
@@ -49,7 +48,7 @@ open class MainActivity : AppCompatActivity() {
 
     private fun init2() {
         NotificationManager(this).createNotificationChannels()
-        replaceFragment(Status())
+        replaceFragment(StatusFragment())
     }
 
     private fun initBiometric(): Boolean {
@@ -105,14 +104,14 @@ open class MainActivity : AppCompatActivity() {
         }
         appBar.setOnMenuItemClickListener {
             when (it.itemId) {
-                R.id.top_settings -> {
-                    replaceFragment(when (supportFragmentManager.fragments.last()) {
-                        is SettingsFragment ->
-                            getFragment(navigation.checkedItem?.itemId ?: R.id.nav_main)
-                        else -> SettingsFragment()
-                    })
-                    true
-                }
+//                R.id.top_settings -> {
+//                    replaceFragment(when (supportFragmentManager.fragments.last()) {
+//                        is SettingsFragment ->
+//                            getFragment(navigation.checkedItem?.itemId ?: R.id.nav_main)
+//                        else -> SettingsFragment()
+//                    })
+//                    true
+//                }
                 R.id.top_copy -> {
                     copySecret()
                     true
@@ -133,7 +132,7 @@ open class MainActivity : AppCompatActivity() {
     }
 
     private fun replaceFragment(f: Fragment) {
-        binding.appBar.menu.setGroupVisible(R.id.top_group_main, f is MainFragment)
+        binding.appBar.menu.setGroupVisible(R.id.top_group_main, f is PanicWipeSettingsFragment)
         supportFragmentManager
             .beginTransaction()
             .replace(binding.fragment.id, f)
@@ -141,15 +140,15 @@ open class MainActivity : AppCompatActivity() {
     }
 
     private fun getFragment(id: Int) = when (id) {
-        R.id.nav_status -> Status()
-        R.id.nav_main -> MainFragment()
-        R.id.nav_trigger_networking -> NetworkingFragment()
+        R.id.nav_status -> StatusFragment()
+        R.id.nav_main -> PanicWipeSettingsFragment()
         R.id.nav_trigger_tile -> TileFragment()
         R.id.nav_trigger_notification -> NotificationFragment()
         R.id.nav_trigger_lock -> LockFragment()
         R.id.nav_trigger_application -> ApplicationFragment()
         R.id.nav_recast -> RecastFragment()
-        else -> MainFragment()
+        R.id.nav_trigger_networking -> NetworkingFragment()
+        else -> StatusFragment()
     }
 
     private fun copySecret() {
@@ -167,7 +166,7 @@ open class MainActivity : AppCompatActivity() {
             .setNegativeButton(android.R.string.ok) { _, _ ->
                 if (secret.error != null) return@setNegativeButton
                 prefs.secret = secret.editText?.text?.toString()?.trim() ?: return@setNegativeButton
-                replaceFragment(MainFragment())
+                replaceFragment(PanicWipeSettingsFragment())
             }
             .create()
         secret.editText?.setText(prefs.secret)
