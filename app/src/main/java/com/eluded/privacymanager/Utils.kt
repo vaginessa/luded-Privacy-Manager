@@ -147,4 +147,24 @@ class Utils(private val ctx: Context) {
             if (extraKey.isNotEmpty()) putExtra(extraKey, prefs.recastExtraValue)
         })
     }
+
+    fun updateWipeOnUSB(isChecked: Boolean) {
+        prefs.wipeOnUSB = isChecked
+        prefs.triggers = Utils.setFlag(prefs.triggers, Trigger.USB.value, isChecked)
+        this.updateForegroundRequiredEnabled()
+    }
+
+    fun getWipeOnUSB(): Boolean {
+        return prefs.triggers.and(Trigger.USB.value) != 0;
+    }
+
+    fun updateWipeOnNotification(isChecked: Boolean) {
+        prefs.triggers =
+            Utils.setFlag(prefs.triggers, Trigger.NOTIFICATION.value, isChecked)
+        this.setNotificationEnabled(isChecked && prefs.isEnabled)
+    }
+    fun getWipeOnNotification(): Boolean {
+        return  prefs.triggers.and(Trigger.NOTIFICATION.value) != 0
+    }
+
 }

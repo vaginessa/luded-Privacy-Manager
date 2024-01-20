@@ -41,7 +41,7 @@
             </menu>
         </item>
 
-        <item android:title="Networking Options">
+        <item android:title="Networking Options" android:id="@+id/nav_networking_group">
             <menu>
                 <item
                     android:id="@+id/nav_trigger_networking"

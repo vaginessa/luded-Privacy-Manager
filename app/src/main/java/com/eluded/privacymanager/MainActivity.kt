@@ -3,6 +3,7 @@ package com.eluded.privacymanager
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.SharedPreferences
+import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -11,13 +12,19 @@ import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
+import com.eluded.privacymanager.databinding.ActivityMainBinding
+import com.eluded.privacymanager.fragment.ApplicationFragment
+import com.eluded.privacymanager.fragment.LockFragment
+import com.eluded.privacymanager.fragment.NetworkingFragment
+import com.eluded.privacymanager.fragment.NotificationFragment
+import com.eluded.privacymanager.fragment.PanicWipeSettingsFragment
+import com.eluded.privacymanager.fragment.RecastFragment
+import com.eluded.privacymanager.fragment.StatusFragment
+import com.eluded.privacymanager.fragment.TileFragment
+import com.eluded.privacymanager.trigger.shared.NotificationManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
-
-import com.eluded.privacymanager.databinding.ActivityMainBinding
-import com.eluded.privacymanager.fragment.*
-import com.eluded.privacymanager.trigger.shared.NotificationManager
 
 
 open class MainActivity : AppCompatActivity() {
@@ -44,11 +51,26 @@ open class MainActivity : AppCompatActivity() {
         prefs = Preferences(this)
         prefsdb = Preferences(this, encrypted = false)
         prefs.copyTo(prefsdb)
+        if(!isPackageInstalled("org.calyxos.datura", packageManager)) {
+            binding.navigation.menu.removeItem(R.id.nav_networking_group);
+        }
     }
 
     private fun init2() {
         NotificationManager(this).createNotificationChannels()
         replaceFragment(StatusFragment())
+    }
+
+    private fun isPackageInstalled(
+        packageName: String,
+        packageManager: PackageManager
+    ): Boolean {
+        return try {
+            packageManager.getPackageInfo(packageName, 0)
+            true
+        } catch (e: PackageManager.NameNotFoundException) {
+            false
+        }
     }
 
     private fun initBiometric(): Boolean {

@@ -53,8 +53,9 @@ class StatusFragment : Fragment() {
         prefs = Preferences(ctx)
         prefsdb = Preferences(ctx, encrypted = false)
         binding.apply {
-            wipeOnUSB.isChecked = prefs.wipeOnUSB
-            wipeFromCode.isChecked = prefs.triggers.and(Trigger.NOTIFICATION.value) != 0
+            var isWipeOnNotification = utils.getWipeOnNotification();
+            var isWipeOnUSB = utils.getWipeOnUSB();
+            isPanicWipeEnabled.isChecked = (prefs.isWipeData && (isWipeOnNotification || isWipeOnUSB ));
         }
     }
 
