@@ -12,6 +12,7 @@ This Project Aims To Combine:
 - [Scrambled EXIF](https://gitlab.com/juanitobananas/scrambled-exif)
 - [Duress](https://github.com/x13a/Duress)
 - [Mission Control](https://f-droid.org/en/packages/net.kollnig.missioncontrol.fdroid/)
+- [Network Ghost](https://github.com/souramoo/NetworkGhost)
 
 With a more user-friendly interface 
 which allows someone not so technical to configure privacy-friendly features:
