@@ -71,7 +71,7 @@
                 android:id="@+id/extraKey"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/extra_key">
+                >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -88,7 +88,7 @@
                 android:id="@+id/extraValue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/extra_value">
+                >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"

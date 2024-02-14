@@ -12,7 +12,7 @@
                 <item
                     android:id="@+id/nav_main"
                     android:checkable="true"
-                    android:title="@string/main" />
+                    android:title="@string/navmenu_main" />
 
                 <item
                     android:id="@+id/nav_trigger_tile"
@@ -37,7 +37,7 @@
                 <item
                     android:id="@+id/nav_recast"
                     android:checkable="true"
-                    android:title="@string/recast" />
+                    android:title="@string/navmenu_recast" />
             </menu>
         </item>
 

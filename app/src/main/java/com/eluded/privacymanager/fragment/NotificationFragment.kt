@@ -24,7 +24,7 @@ class NotificationFragment : Fragment() {
     }
 
     private fun setup() = binding.apply {
-        gotoButton.setOnClickListener {
+        toggle.setOnClickListener {
             startActivity(Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS))
         }
     }

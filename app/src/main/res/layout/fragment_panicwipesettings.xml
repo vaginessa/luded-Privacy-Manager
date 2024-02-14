@@ -24,6 +24,22 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Panic Wipe Settings"
+                    android:textAppearance="?attr/textAppearanceHeadline6" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/trigger_notification_description"
+                    android:textAppearance="?attr/textAppearanceSubtitle2" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+
+                <TextView
                     android:id="@+id/secret"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

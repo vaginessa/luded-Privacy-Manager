@@ -14,6 +14,23 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fake Application Triggers"
+                android:textAppearance="?attr/textAppearanceHeadline6" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/trigger_application_description"
+                android:textAppearance="?attr/textAppearanceSubtitle2" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
             <CheckBox
                 android:id="@+id/signal"
                 android:layout_width="match_parent"
