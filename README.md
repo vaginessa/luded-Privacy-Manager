@@ -1,9 +1,30 @@
-<!-- [<img 
-     src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
-     alt="Get it on F-Droid"
-     height="80">]() -->
+<div align='center'>
 
-<img src="https://github.com/Eluded-Smartphones/Eluded-Privacy-Manager/blob/main/app/src/main/res/drawable/logo.png?raw=true">
+![logo](&#x2F;.dev&#x2F;logo.png)
+
+<p>Easily Configure Common Privacy Related Settings for CalyxOS</p>
+</div>
+
+
+![GitHub Release Date](https://img.shields.io/github/release-date/Eluded-Smartphones/Eluded-Privacy-Manager?display_date=published_at&style=flat-square) ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/Eluded-Smartphones/Eluded-Privacy-Manager/android.yml?style=flat-square) ![GitHub Downloads (all assets, latest release)](https://img.shields.io/github/downloads/Eluded-Smartphones/Eluded-Privacy-Manager/latest/total?sort=date&style=flat-square)  
+ 
+ <br /> 
+
+
+
+
+
+
+
+## 💻 **TECHNOLOGIES**
+[![Android Studio](https:&#x2F;&#x2F;img.shields.io&#x2F;badge&#x2F;Android%20Studio-3DDC84?style&#x3D;for-the-badge&amp;logo&#x3D;Android%20Studio&amp;logoColor&#x3D;white)]()
+[![Kotlin](https:&#x2F;&#x2F;img.shields.io&#x2F;badge&#x2F;Kotlin-7F52FF?style&#x3D;for-the-badge&amp;logo&#x3D;Kotlin&amp;logoColor&#x3D;white)]()
+[![Android](https:&#x2F;&#x2F;img.shields.io&#x2F;badge&#x2F;Android-34A853?style&#x3D;for-the-badge&amp;logo&#x3D;Android&amp;logoColor&#x3D;white)]()
+
+
+ 
+ <br />
+
 
 # The Aim:
 This Project Aims To Combine:
@@ -32,20 +53,10 @@ Eventually the aim is to merge into [CalyxOS](https://calyxos.org/)
 
 Be aware that the app does not work in _safe mode_.
 
-# Broadcast
-
-* action: `com.eluded.privacymanager.action.TRIGGER`
-* receiver: `com.eluded.privacymanager/.TriggerReceiver`
-* also you have to send a secret code from Wasted with the key: `code`
-
-# Permissions
-
-* DEVICE_ADMIN - lock and optionally wipe a device
-* FOREGROUND_SERVICE - receive lock and USB state events
-* RECEIVE_BOOT_COMPLETED - persist lock job and foreground service across reboots
-* org.calyxos.datura.permission.CHANGE_SETTINGS - Update Settings For Firewall
+ 
+ <br />
 
 
-# Localization
+ 
+ <br />
 
-[![GNU GPLv3 Image](https://www.gnu.org/graphics/gplv3-127x51.png)](https://www.gnu.org/licenses/gpl-3.0.en.html)

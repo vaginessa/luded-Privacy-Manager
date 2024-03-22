@@ -1,0 +1,64 @@
+{
+  "name": "Eluded-Privacy-Manager",
+  "description": "Easily Configure Common Privacy Related Settings for CalyxOS",
+  "gitPath": "",
+  "sections": [
+    "Brands",
+    "Custom",
+    "Shields"
+  ],
+  "sectionconfig": {
+    "Brands": {
+      "order": 0,
+      "data": [
+        "tools.8",
+        "llanguages:.8",
+        "systems.4"
+      ]
+    },
+    "Custom": {
+      "order": 1,
+      "data": {}
+    },
+    "Shields": {
+      "GitHub Release Date": {
+        "name": "GitHub Release Date",
+        "pathParams": {
+          "variant": "release-date",
+          "user": "Eluded-Smartphones",
+          "repo": "Eluded-Privacy-Manager"
+        },
+        "queryParams": {
+          "display_date": "published_at",
+          "style": "flat-square"
+        },
+        "url": "https://img.shields.io/github/:variant/:user/:repo"
+      },
+      "GitHub Actions Workflow Status": {
+        "name": "GitHub Actions Workflow Status",
+        "pathParams": {
+          "user": "Eluded-Smartphones",
+          "repo": "Eluded-Privacy-Manager",
+          "workflow": "android.yml"
+        },
+        "queryParams": {
+          "style": "flat-square"
+        },
+        "url": "https://img.shields.io/github/actions/workflow/status/:user/:repo/:workflow"
+      },
+      "GitHub Downloads (all assets, latest release)": {
+        "name": "GitHub Downloads (all assets, latest release)",
+        "pathParams": {
+          "variant": "downloads",
+          "user": "Eluded-Smartphones",
+          "repo": "Eluded-Privacy-Manager"
+        },
+        "queryParams": {
+          "sort": "date",
+          "style": "flat-square"
+        },
+        "url": "https://img.shields.io/github/:variant/:user/:repo/latest/total"
+      }
+    }
+  }
+}
