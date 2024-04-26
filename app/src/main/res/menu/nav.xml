@@ -6,40 +6,12 @@
         android:checked="true"
         android:title="Status" />
 
-    <group>
-        <item android:title="Panic Options">
-            <menu>
+
                 <item
                     android:id="@+id/nav_main"
                     android:checkable="true"
                     android:title="@string/navmenu_main" />
 
-                <item
-                    android:id="@+id/nav_trigger_tile"
-                    android:checkable="true"
-                    android:title="@string/trigger_tile" />
-
-                <item
-                    android:id="@+id/nav_trigger_notification"
-                    android:checkable="true"
-                    android:title="@string/trigger_notification" />
-
-                <item
-                    android:id="@+id/nav_trigger_lock"
-                    android:checkable="true"
-                    android:title="Trigger With Inactivity" />
-
-                <item
-                    android:id="@+id/nav_trigger_application"
-                    android:checkable="true"
-                    android:title="Fake Application Trigger" />
-
-                <item
-                    android:id="@+id/nav_recast"
-                    android:checkable="true"
-                    android:title="@string/navmenu_recast" />
-            </menu>
-        </item>
 
         <item android:title="Networking Options" android:id="@+id/nav_networking_group">
             <menu>
@@ -49,6 +21,5 @@
                     android:title="Routing" />
             </menu>
         </item>
-    </group>
 </menu>
 

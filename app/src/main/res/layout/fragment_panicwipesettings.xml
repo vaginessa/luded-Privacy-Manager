@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.PanicWipeSettingsFragment">
+    tools:context=".features.panickwipe.PanicWipeSettingsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -27,13 +27,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Panic Wipe Settings"
-                    android:textAppearance="?attr/textAppearanceHeadline6" />
+                    android:textAppearance="?attr/textAppearanceHeadline6" android:textAlignment="center" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/trigger_notification_description"
-                    android:textAppearance="?attr/textAppearanceSubtitle2" />
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                    android:textAlignment="center"/>
 
                 <Space
                     android:layout_width="match_parent"
@@ -107,13 +108,24 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
-
             <ToggleButton
                 android:id="@+id/toggle"
+                style="@style/Theme.Wasted.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="?attr/textAppearanceTitleMedium" />
+                 />
 
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/triggersettings"
+                style="@style/Theme.Wasted.Button"
+                android:layout_marginHorizontal="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TRIGGER SETTINGS"
+                app:icon="@drawable/ic_baseline_settings_24"
+                app:iconGravity="textStart"
+                />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -13,19 +13,13 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import com.eluded.privacymanager.databinding.ActivityMainBinding
-import com.eluded.privacymanager.fragment.ApplicationFragment
-import com.eluded.privacymanager.fragment.LockFragment
-import com.eluded.privacymanager.fragment.NetworkingFragment
-import com.eluded.privacymanager.fragment.NotificationFragment
-import com.eluded.privacymanager.fragment.PanicWipeSettingsFragment
-import com.eluded.privacymanager.fragment.RecastFragment
+import com.eluded.privacymanager.features.networkingrouting.NetworkingFragment
+import com.eluded.privacymanager.features.panickwipe.PanicWipeSettingsFragment
 import com.eluded.privacymanager.fragment.StatusFragment
-import com.eluded.privacymanager.fragment.TileFragment
-import com.eluded.privacymanager.trigger.shared.NotificationManager
+import com.eluded.privacymanager.features.panickwipe.shared.NotificationManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
-import java.time.LocalDate
 
 
 open class MainActivity : AppCompatActivity() {
@@ -165,11 +159,6 @@ open class MainActivity : AppCompatActivity() {
     private fun getFragment(id: Int) = when (id) {
         R.id.nav_status -> StatusFragment()
         R.id.nav_main -> PanicWipeSettingsFragment()
-        R.id.nav_trigger_tile -> TileFragment()
-        R.id.nav_trigger_notification -> NotificationFragment()
-        R.id.nav_trigger_lock -> LockFragment()
-        R.id.nav_trigger_application -> ApplicationFragment()
-        R.id.nav_recast -> RecastFragment()
         R.id.nav_trigger_networking -> NetworkingFragment()
         else -> StatusFragment()
     }

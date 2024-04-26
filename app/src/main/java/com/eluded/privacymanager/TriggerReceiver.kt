@@ -6,6 +6,7 @@ import android.content.Intent
 
 class TriggerReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
-        com.eluded.privacymanager.trigger.broadcast.BroadcastReceiver().onReceive(context, intent)
+        com.eluded.privacymanager.features.panickwipe.broadcast.BroadcastReceiver()
+            .onReceive(context, intent)
     }
 }

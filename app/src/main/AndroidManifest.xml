@@ -43,7 +43,7 @@
         tools:targetApi="s">
 
         <activity
-            android:name=".welcome.FirstRunActivity"
+            android:name="layout.welcome.FirstRunActivity"
             android:label="@string/app_name"
             android:exported="true">
             <intent-filter>
@@ -78,7 +78,7 @@
         </receiver>
 
         <activity
-            android:name=".trigger.panic.PanicConnectionActivity"
+            android:name=".features.panickwipe.panic.PanicConnectionActivity"
             android:noHistory="true"
             android:enabled="false"
             android:exported="true">
@@ -90,7 +90,7 @@
         </activity>
 
         <activity
-            android:name=".trigger.panic.PanicResponderActivity"
+            android:name=".features.panickwipe.panic.PanicResponderActivity"
             android:directBootAware="true"
             android:noHistory="true"
             android:enabled="false"
@@ -103,7 +103,7 @@
         </activity>
 
         <service
-            android:name=".trigger.tile.TileService"
+            android:name=".features.panickwipe.trigger.tile.TileService"
             android:directBootAware="true"
             android:icon="@drawable/ic_baseline_airplanemode_active_24"
             android:label="@string/tile_label"
@@ -119,7 +119,7 @@
         </service>
 
         <activity
-            android:name=".trigger.shortcut.ShortcutActivity"
+            android:name=".features.panickwipe.trigger.shortcut.ShortcutActivity"
             android:noHistory="true"
             android:enabled="false"
             android:exported="true"
@@ -142,7 +142,7 @@
         </receiver>
 
         <service
-            android:name=".trigger.notification.NotificationListenerService"
+            android:name=".features.panickwipe.trigger.notification.NotificationListenerService"
             android:directBootAware="true"
             android:enabled="false"
             android:exported="true"
@@ -153,14 +153,14 @@
         </service>
 
         <service
-            android:name=".trigger.lock.LockJobService"
+            android:name=".features.panickwipe.trigger.lock.LockJobService"
             android:directBootAware="true"
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE">
         </service>
 
         <receiver
-            android:name=".trigger.usb.UsbReceiver"
+            android:name=".features.panickwipe.trigger.usb.UsbReceiver"
             android:directBootAware="true"
             android:enabled="false"
             android:exported="true">
@@ -175,13 +175,13 @@
         </receiver>
 
         <service
-            android:name=".trigger.shared.ForegroundService"
+            android:name=".features.panickwipe.shared.ForegroundService"
             android:directBootAware="true"
             android:exported="false">
         </service>
 
         <receiver
-            android:name=".trigger.shared.RestartReceiver"
+            android:name=".features.panickwipe.shared.RestartReceiver"
             android:directBootAware="true"
             android:enabled="false"
             android:exported="true">
@@ -193,7 +193,7 @@
         </receiver>
 
         <activity
-            android:name=".trigger.application.ApplicationActivity"
+            android:name=".features.panickwipe.trigger.application.ApplicationActivity"
             android:taskAffinity=".trigger.application"
             android:noHistory="true"
             android:theme="@android:style/Theme.NoDisplay"
@@ -203,7 +203,7 @@
 
         <activity-alias
             android:name=".trigger.application.SignalActivity"
-            android:targetActivity=".trigger.application.ApplicationActivity"
+            android:targetActivity=".features.panickwipe.trigger.application.ApplicationActivity"
             android:label="@string/signal"
             android:icon="@mipmap/ic_signal"
             android:roundIcon="@mipmap/ic_signal_round"
@@ -219,7 +219,7 @@
         
         <activity-alias
             android:name=".trigger.application.TelegramActivity"
-            android:targetActivity=".trigger.application.ApplicationActivity"
+            android:targetActivity=".features.panickwipe.trigger.application.ApplicationActivity"
             android:label="@string/telegram"
             android:icon="@mipmap/ic_telegram"
             android:roundIcon="@mipmap/ic_telegram_round"
@@ -235,7 +235,7 @@
 
         <activity-alias
             android:name=".trigger.application.ThreemaActivity"
-            android:targetActivity=".trigger.application.ApplicationActivity"
+            android:targetActivity=".features.panickwipe.trigger.application.ApplicationActivity"
             android:label="@string/threema"
             android:icon="@mipmap/ic_threema"
             android:roundIcon="@mipmap/ic_threema_round"
@@ -251,7 +251,7 @@
 
         <activity-alias
             android:name=".trigger.application.SessionActivity"
-            android:targetActivity=".trigger.application.ApplicationActivity"
+            android:targetActivity=".features.panickwipe.trigger.application.ApplicationActivity"
             android:label="@string/session"
             android:icon="@mipmap/ic_session"
             android:roundIcon="@mipmap/ic_session_round"

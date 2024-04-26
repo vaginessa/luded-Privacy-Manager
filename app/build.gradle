@@ -17,14 +17,14 @@ def aospDeps = fileTree(include: [
 
 
 android {
-    compileSdk 32
-    compileSdkVersion 32
+    compileSdk 33
+    compileSdkVersion 33
     buildToolsVersion "30.0.2"
 
     defaultConfig {
         applicationId "com.eluded.privacymanager"
         minSdk 30
-        targetSdk 32
+        targetSdk 33
         versionCode 39
         versionName "1.5.10"
 
@@ -54,6 +54,8 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.3.0'
     compileOnly aospDeps
 
 

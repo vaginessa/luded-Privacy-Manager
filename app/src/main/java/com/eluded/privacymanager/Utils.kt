@@ -9,15 +9,15 @@ import android.os.Build
 import androidx.core.content.ContextCompat
 
 import com.eluded.privacymanager.admin.DeviceAdminManager
-import com.eluded.privacymanager.trigger.notification.NotificationListenerService
-import com.eluded.privacymanager.trigger.panic.PanicConnectionActivity
-import com.eluded.privacymanager.trigger.panic.PanicResponderActivity
-import com.eluded.privacymanager.trigger.shared.ForegroundService
-import com.eluded.privacymanager.trigger.shared.RestartReceiver
-import com.eluded.privacymanager.trigger.shortcut.ShortcutActivity
-import com.eluded.privacymanager.trigger.shortcut.ShortcutManager
-import com.eluded.privacymanager.trigger.tile.TileService
-import com.eluded.privacymanager.trigger.usb.UsbReceiver
+import com.eluded.privacymanager.features.panickwipe.trigger.notification.NotificationListenerService
+import com.eluded.privacymanager.features.panickwipe.panic.PanicConnectionActivity
+import com.eluded.privacymanager.features.panickwipe.panic.PanicResponderActivity
+import com.eluded.privacymanager.features.panickwipe.shared.ForegroundService
+import com.eluded.privacymanager.features.panickwipe.shared.RestartReceiver
+import com.eluded.privacymanager.features.panickwipe.trigger.shortcut.ShortcutActivity
+import com.eluded.privacymanager.features.panickwipe.trigger.shortcut.ShortcutManager
+import com.eluded.privacymanager.features.panickwipe.trigger.tile.TileService
+import com.eluded.privacymanager.features.panickwipe.trigger.usb.UsbReceiver
 
 class Utils(private val ctx: Context) {
     companion object {
