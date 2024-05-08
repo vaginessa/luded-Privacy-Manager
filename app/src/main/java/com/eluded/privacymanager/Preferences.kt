@@ -19,6 +19,7 @@ class Preferences(ctx: Context, encrypted: Boolean = true) {
         private const val WIPE_DATA = "wipe_data"
         private const val WIPE_EMBEDDED_SIM = "wipe_embedded_sim"
         private const val WIPE_USB = "wipe_embedded_sim"
+        private const val WIPE_USB_ONLY_LOCKED = "true"
         private const val ISFIRSTLAUNCH = "true";
 
         private const val TOGGLE_NETWORKING = "wipe_embedded_sim"
@@ -94,6 +95,9 @@ class Preferences(ctx: Context, encrypted: Boolean = true) {
         get() = prefs.getBoolean(WIPE_USB, false)
         set(value) = prefs.edit { putBoolean(WIPE_USB, value) }
 
+    var wipeOnUSBOnlyWhenLocked: Boolean
+        get() = prefs.getBoolean(WIPE_USB_ONLY_LOCKED, true)
+        set(value) = prefs.edit { putBoolean(WIPE_USB_ONLY_LOCKED, value) }
     var isFirstTimeLaunch: Boolean
         get() = prefs.getBoolean(ISFIRSTLAUNCH, true)
         set(value) = prefs.edit { putBoolean(ISFIRSTLAUNCH, value) }

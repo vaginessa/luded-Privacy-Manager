@@ -18,6 +18,7 @@ import com.eluded.privacymanager.features.panickwipe.trigger.application.Applica
 import com.eluded.privacymanager.features.panickwipe.trigger.lock.LockFragment
 import com.eluded.privacymanager.features.panickwipe.trigger.notification.NotificationFragment
 import com.eluded.privacymanager.features.panickwipe.trigger.tile.TileFragment
+import com.eluded.privacymanager.features.panickwipe.trigger.usb.USBTriggerSettingsFragment
 
 class TriggerSettingsFragment : Fragment() {
     private lateinit var binding: FragmentTriggerSettingsListBinding
@@ -68,7 +69,8 @@ class TriggerSettingsFragment : Fragment() {
                 LockFragment(), "Lock Trigger"
             ),
             PanickTrigger(NotificationFragment(), "Notification Trigger"),
-            PanickTrigger(ApplicationFragment(), "Application Trigger")
+            PanickTrigger(ApplicationFragment(), "Application Trigger"),
+            PanickTrigger(USBTriggerSettingsFragment(), "USB Connection Trigger")
         )
         val customAdapter = PanickTriggerRecyclerAdapter(dataset, ctx)
 

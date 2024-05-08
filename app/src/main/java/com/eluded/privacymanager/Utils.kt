@@ -6,18 +6,20 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
+import android.widget.Toast
 import androidx.core.content.ContextCompat
-
 import com.eluded.privacymanager.admin.DeviceAdminManager
-import com.eluded.privacymanager.features.panickwipe.trigger.notification.NotificationListenerService
 import com.eluded.privacymanager.features.panickwipe.panic.PanicConnectionActivity
 import com.eluded.privacymanager.features.panickwipe.panic.PanicResponderActivity
 import com.eluded.privacymanager.features.panickwipe.shared.ForegroundService
 import com.eluded.privacymanager.features.panickwipe.shared.RestartReceiver
+import com.eluded.privacymanager.features.panickwipe.trigger.notification.NotificationListenerService
 import com.eluded.privacymanager.features.panickwipe.trigger.shortcut.ShortcutActivity
 import com.eluded.privacymanager.features.panickwipe.trigger.shortcut.ShortcutManager
 import com.eluded.privacymanager.features.panickwipe.trigger.tile.TileService
 import com.eluded.privacymanager.features.panickwipe.trigger.usb.UsbReceiver
+import java.lang.reflect.InvocationTargetException
+
 
 class Utils(private val ctx: Context) {
     companion object {
@@ -28,7 +30,7 @@ class Utils(private val ctx: Context) {
             }
     }
 
-    private val prefs by lazy { Preferences.new(ctx) }
+    public val prefs by lazy { Preferences.new(ctx) }
 
     fun setEnabled(enabled: Boolean) {
         val triggers = prefs.triggers
@@ -118,16 +120,49 @@ class Utils(private val ctx: Context) {
 
     fun fire(trigger: Trigger, safe: Boolean = true) {
         if (!prefs.isEnabled || prefs.triggers.and(trigger.value) == 0) return
+
         val admin = DeviceAdminManager(ctx)
         try {
             admin.lockNow()
-            if (prefs.isWipeData && safe) admin.wipeData()
+            if (prefs.isWipeData && safe) admin.wipeData() else Toast.makeText(ctx, "Panic Wipe Triggered", Toast.LENGTH_SHORT).show();
         } catch (exc: SecurityException) {}
         if (prefs.isRecastEnabled && safe) recast()
     }
 
     fun isDeviceLocked() = ctx.getSystemService(KeyguardManager::class.java).isDeviceLocked
 
+    fun isPackageInstalled(
+        packageName: String,
+        packageManager: PackageManager
+    ): Boolean {
+        return try {
+            packageManager.getPackageInfo(packageName, 0)
+            true
+        } catch (e: PackageManager.NameNotFoundException) {
+            false
+        }
+    }
+    @Throws(
+        ClassNotFoundException::class,
+        NoSuchMethodException::class,
+        InvocationTargetException::class,
+        IllegalAccessException::class
+    )
+    public fun getSystemProperty(key: String, defValue: String): String {
+        // Types of parameters
+        val paramTypes = arrayOf<Class<*>>(
+            String::class.java,
+            String::class.java
+        )
+        // Parameters
+        val params = arrayOf<Any>(key, defValue)
+        // Target class
+        val c = Class.forName("android.os.SystemProperties")
+        // Target method
+        val m = c.getDeclaredMethod("get", *paramTypes)
+        // Invoke
+        return m.invoke(c, *params) as String
+    }
     private fun recast() {
         val action = prefs.recastAction
         if (action.isEmpty()) return

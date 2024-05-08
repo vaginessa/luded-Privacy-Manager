@@ -1,18 +1,22 @@
 package com.eluded.privacymanager.fragment
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import androidx.fragment.app.Fragment
 import com.eluded.privacymanager.Preferences
-import com.eluded.privacymanager.Trigger
+import com.eluded.privacymanager.R
 import com.eluded.privacymanager.Utils
 import com.eluded.privacymanager.admin.DeviceAdminManager
 import com.eluded.privacymanager.databinding.FragmentStatusBinding
+import java.util.Locale
+import android.content.pm.PackageManager
+import android.net.Uri
+
 
 class StatusFragment : Fragment() {
     private lateinit var binding: FragmentStatusBinding
@@ -55,7 +59,18 @@ class StatusFragment : Fragment() {
         binding.apply {
             var isWipeOnNotification = utils.getWipeOnNotification();
             var isWipeOnUSB = utils.getWipeOnUSB();
+            val isEncrypted: Boolean =
+                utils.getSystemProperty("ro.crypto.state", "").lowercase(Locale.ROOT) == "encrypted"
+            isDeviceEncrypted.isChecked = isEncrypted
             isPanicWipeEnabled.isChecked = (prefs.isWipeData && (isWipeOnNotification || isWipeOnUSB ));
+            if(!utils.isPackageInstalled("org.calyxos.datura", requireActivity().packageManager)) {
+                isNetworkRoutingEnabled.visibility = View.GONE;
+            }
+
+            gitbutton.setOnClickListener{
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/eluded-smartphones/"))
+                startActivity(browserIntent);
+            }
         }
     }
 
@@ -63,5 +78,4 @@ class StatusFragment : Fragment() {
 
 
     }
-
 }

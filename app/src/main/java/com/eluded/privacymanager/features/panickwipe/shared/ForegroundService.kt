@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.IBinder
+import android.util.Log
 import androidx.core.app.NotificationCompat
 
 import com.eluded.privacymanager.Preferences
@@ -15,6 +16,7 @@ import com.eluded.privacymanager.R
 import com.eluded.privacymanager.Trigger
 import com.eluded.privacymanager.Utils
 import com.eluded.privacymanager.features.panickwipe.trigger.lock.LockJobManager
+import com.eluded.privacymanager.features.panickwipe.trigger.usb.UsbReceiver
 
 class ForegroundService : Service() {
     companion object {
@@ -40,6 +42,7 @@ class ForegroundService : Service() {
         prefs = Preferences.new(this)
         lockReceiver = LockReceiver(getSystemService(KeyguardManager::class.java).isDeviceLocked)
         val triggers = prefs.triggers
+        Log.d("DEBUG", "Service Started");
         if (triggers.and(Trigger.LOCK.value) != 0)
             registerReceiver(lockReceiver, IntentFilter().apply {
                 addAction(Intent.ACTION_USER_PRESENT)
@@ -102,22 +105,6 @@ class ForegroundService : Service() {
                 }
                 pendingResult.finish()
             }
-        }
-    }
-
-    private class UsbReceiver : BroadcastReceiver() {
-        companion object {
-            private const val KEY_1 = "connected"
-            private const val KEY_2 = "host_connected"
-        }
-
-        override fun onReceive(context: Context?, intent: Intent?) {
-            if (intent?.action != ACTION_USB_STATE) return
-            val utils = Utils(context ?: return)
-            if (!utils.isDeviceLocked()) return
-            val extras = intent.extras ?: return
-            if (!extras.getBoolean(KEY_1) && !extras.getBoolean(KEY_2)) return
-            utils.fire(Trigger.USB)
         }
     }
 }

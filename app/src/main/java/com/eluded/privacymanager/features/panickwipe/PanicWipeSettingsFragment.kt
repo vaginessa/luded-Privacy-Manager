@@ -68,27 +68,27 @@ class PanicWipeSettingsFragment : Fragment() {
             wipeData.isChecked = prefs.isWipeData
             wipeEmbeddedSim.isChecked = prefs.isWipeEmbeddedSim
             wipeEmbeddedSim.isEnabled = wipeData.isChecked
-            wipeFromCode.isChecked = utils.getWipeOnNotification();
-            wipeOnUSB.isChecked = utils.getWipeOnUSB();
-            wipeData.isEnabled = wipeOnUSB.isChecked || wipeFromCode.isChecked
+//            wipeFromCode.isChecked = utils.getWipeOnNotification();
+//            wipeOnUSB.isChecked = utils.getWipeOnUSB();
+//            wipeData.isEnabled = wipeOnUSB.isChecked || wipeFromCode.isChecked
             toggle.isChecked = prefs.isEnabled
         }
     }
 
     private fun setup() = binding.apply {
         triggersettings.setOnClickListener {
-            parentFragmentManager.beginTransaction().replace(R.id.fragment, TriggerSettingsFragment()).commit()
+            parentFragmentManager.beginTransaction().add(R.id.fragment, TriggerSettingsFragment()).addToBackStack("Trigger Settings").commit()
         }
 
-        wipeOnUSB.setOnCheckedChangeListener { _, isChecked ->
-            wipeData.isEnabled = isChecked || wipeFromCode.isChecked
-            utils.updateWipeOnUSB(isChecked);
-        }
-
-        wipeFromCode.setOnCheckedChangeListener { _, isChecked ->
-            wipeData.isEnabled = isChecked || wipeOnUSB.isChecked
-            utils.updateWipeOnNotification(isChecked);
-        }
+//        wipeOnUSB.setOnCheckedChangeListener { _, isChecked ->
+//            wipeData.isEnabled = isChecked || wipeFromCode.isChecked
+//            utils.updateWipeOnUSB(isChecked);
+//        }
+//
+//        wipeFromCode.setOnCheckedChangeListener { _, isChecked ->
+//            wipeData.isEnabled = isChecked || wipeOnUSB.isChecked
+//            utils.updateWipeOnNotification(isChecked);
+//        }
 
 
         wipeData.setOnCheckedChangeListener { _, isChecked ->

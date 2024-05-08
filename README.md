@@ -34,6 +34,8 @@ This Project Aims To Combine:
 - [Duress](https://github.com/x13a/Duress)
 - [Mission Control](https://f-droid.org/en/packages/net.kollnig.missioncontrol.fdroid/)
 - [Network Ghost](https://github.com/souramoo/NetworkGhost)
+- [Find My Device](https://f-droid.org/en/packages/de.nulide.findmydevice/index.html)
+- [AirGaurd](https://f-droid.org/en/packages/de.seemoo.at_tracking_detection/index.html)
 
 With a more user-friendly interface 
 which allows someone not so technical to configure privacy-friendly features:

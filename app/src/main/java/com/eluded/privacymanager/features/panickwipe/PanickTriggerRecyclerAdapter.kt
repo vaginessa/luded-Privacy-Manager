@@ -38,7 +38,7 @@ class PanickTriggerRecyclerAdapter(
         holder.settingbutton.text = item.name
         holder.settingbutton.setOnClickListener {
             var manager: FragmentManager = (context as AppCompatActivity).supportFragmentManager
-             manager.beginTransaction().replace(R.id.fragment, item.fragment).commit()
+             manager.beginTransaction().add(R.id.fragment, item.fragment).addToBackStack(item.name).commit()
 
         }
     }

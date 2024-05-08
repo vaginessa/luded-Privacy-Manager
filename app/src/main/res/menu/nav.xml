@@ -12,8 +12,13 @@
                     android:checkable="true"
                     android:title="@string/navmenu_main" />
 
+<!--    <item-->
+<!--        android:id="@+id/nav_trigger_macspoofing"-->
+<!--        android:checkable="true"-->
+<!--        android:title="MAC Address Spoofing" />-->
 
-        <item android:title="Networking Options" android:id="@+id/nav_networking_group">
+
+    <item android:title="Networking Options" android:id="@+id/nav_networking_group">
             <menu>
                 <item
                     android:id="@+id/nav_trigger_networking"

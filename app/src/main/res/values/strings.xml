@@ -29,35 +29,51 @@
 
 
     <string name="wipe_data_checkbox">Wipe data</string>
-        <string name="wipe_embedded_sim_checkbox">Wipe eSIM</string>
+    <string name="wipe_embedded_sim_checkbox">Wipe eSIM</string>
 
 
-        <string name="enable">Enable</string>
+    <string name="enable">Enable</string>
     <string name="edit">Edit</string>
     <string name="allow">Allow</string>
 
-        <string name="trigger_panic_kit">PanicKit</string>
-        <string name="trigger_tile">Tile</string>
-        <string name="trigger_shortcut">Shortcut</string>
+    <string name="trigger_panic_kit">PanicKit</string>
+    <string name="trigger_tile">Tile</string>
+    <string name="trigger_shortcut">Shortcut</string>
     <string name="shortcut_label">Shortcut</string>
-        <string name="trigger_broadcast">Broadcast</string>
-        <string name="trigger_notification">Notification</string>
-        <string name="trigger_lock">Lock</string>
-        <string name="trigger_usb">USB</string>
-        <string name="trigger_application">Application</string>
+    <string name="trigger_broadcast">Broadcast</string>
+    <string name="trigger_notification">Notification</string>
+    <string name="trigger_lock">Lock</string>
+    <string name="trigger_usb">USB</string>
+    <string name="trigger_application">Application</string>
 
-        <string name="trigger_panic_kit_description">Enable panic responder. PanicKit is a collection of tools for creating “panic buttons” that can trigger a system-wide response when the user is in an anxious or dangerous situation. It enables trigger apps and responder apps to safely and easily connect to each other. The user engages with the trigger app when in a panic situation. The responder apps receive that trigger signal, and individually execute the steps that they were configured to do.</string>
-        <string name="trigger_tile_description">Enable tile service. It is a button in quick settings panel when you swipe from the top of the screen. This button will mimic to the airplane mode.</string>
-        <string name="trigger_shortcut_description">Enable icon shortcut. It is a button you will see when you make a long tap on the Wasted icon.</string>
-        <string name="trigger_broadcast_description">Enable broadcast receiver. It is useful to communicate with another Android apps. For example you can fire Wasted from Tasker using this.</string>
-        <string name="trigger_notification_description">Enable device notification listener. It will scan all notifications it has access to for the secret code. When found it will fire.</string>
-        <string name="trigger_lock_description">Enable lock job scheduler. It will schedule a job every time you turn off a device screen and cancel it every time you unlock a device. When you do not unlock a device for X time a job will fire.</string>
-        <string name="trigger_usb_description">Enable USB state receiver. When you make a USB data connection while a device is locked it will fire. It must not fire on charger, only on device and accessory.</string>
-        <string name="trigger_application_description">Enable fake application. It will add fake messenger applications. Launching them will fire Wasted.</string>
+    <string name="trigger_panic_kit_description">Enable panic responder. PanicKit is a collection of tools for creating “panic buttons” that can trigger a system-wide response when the user is in an anxious or dangerous situation. It enables trigger apps and responder apps to safely and easily connect to each other. The user engages with the trigger app when in a panic situation. The responder apps receive that trigger signal, and individually execute the steps that they were configured to do.</string>
+    <string name="trigger_tile_description">Enable tile service. It is a button in quick settings panel when you swipe from the top of the screen. This button will mimic to the airplane mode.</string>
+    <string name="trigger_shortcut_description">Enable icon shortcut. It is a button you will see when you make a long tap on the Wasted icon.</string>
+    <string name="trigger_broadcast_description">Enable broadcast receiver. It is useful to communicate with another Android apps. For example you can fire Wasted from Tasker using this.</string>
+    <string name="trigger_notification_description">Enable device notification listener. It will scan all notifications it has access to for the secret code. When found it will fire.</string>
+    <string name="trigger_lock_description">Enable lock job scheduler. It will schedule a job every time you turn off a device screen and cancel it every time you unlock a device. When you do not unlock a device for X time a job will fire.</string>
+    <string name="trigger_usb_description">Enable USB state receiver. When you make a USB data connection while a device is locked it will fire. It must not fire on charger, only on device and accessory.</string>
+    <string name="trigger_application_description">Enable fake application. It will add fake messenger applications. Launching them will fire Wasted.</string>
 
-        <string name="signal">Signal</string>
-        <string name="telegram">Telegram</string>
-        <string name="threema">Threema</string>
-        <string name="session">Session</string>
+    <string name="signal">Signal</string>
+    <string name="telegram">Telegram</string>
+    <string name="threema">Threema</string>
+    <string name="session">Session</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="disclaimer">
+This app is provided "as is" and "as available" without any representations or warranties, expressed or implied. The use of this app is at your own risk. We do not guarantee the accuracy, completeness, or suitability of the information and materials found or offered in this app. Your use of any information or materials in this app is entirely at your own risk, for which we shall not be liable.
+
+It shall be your own responsibility to ensure that any products, services, or information available through this app meet your specific requirements. We expressly disclaim liability for any errors or inaccuracies in the information or materials provided in this app, to the fullest extent permitted by law.
+
+This app may contain links to other apps or websites that are not under our control. We have no control over the nature, content, and availability of those sites. The inclusion of any links does not necessarily imply a recommendation or endorse the views expressed within them.
+
+Every effort is made to keep the app up and running smoothly. However, we take no responsibility for, and will not be liable for, the app being temporarily unavailable due to technical issues beyond our control.    </string>
+
+    <string-array name="networking_modes">
+        <item>TOR Only</item>
+        <item>VPN Only</item>
+        <item>TOR + VPN</item>
+    </string-array>
 </resources>

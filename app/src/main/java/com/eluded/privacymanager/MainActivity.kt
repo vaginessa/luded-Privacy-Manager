@@ -2,9 +2,11 @@ package com.eluded.privacymanager
 
 import android.content.ClipData
 import android.content.ClipboardManager
+import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.biometric.BiometricManager
@@ -13,10 +15,12 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import com.eluded.privacymanager.databinding.ActivityMainBinding
+import com.eluded.privacymanager.features.macspoofing.MacSpoofingSettingsFragment
 import com.eluded.privacymanager.features.networkingrouting.NetworkingFragment
 import com.eluded.privacymanager.features.panickwipe.PanicWipeSettingsFragment
-import com.eluded.privacymanager.fragment.StatusFragment
+import com.eluded.privacymanager.features.panickwipe.shared.ForegroundService
 import com.eluded.privacymanager.features.panickwipe.shared.NotificationManager
+import com.eluded.privacymanager.fragment.StatusFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
@@ -26,6 +30,7 @@ open class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var prefs: Preferences
     private lateinit var prefsdb: Preferences
+    private val utils by lazy { Utils(this) }
     private val clipboardManager by lazy { getSystemService(ClipboardManager::class.java) }
 
     private val prefsListener = SharedPreferences.OnSharedPreferenceChangeListener { _, key ->
@@ -40,13 +45,19 @@ open class MainActivity : AppCompatActivity() {
         if (initBiometric()) return
         init2()
         setup()
+        val serviceIntent = Intent(
+            this,
+            ForegroundService::class.java
+        )
+        ContextCompat.startForegroundService(this, serviceIntent);
     }
 
     private fun init1() {
         prefs = Preferences(this)
         prefsdb = Preferences(this, encrypted = false)
+        Log.d("DEBUG", prefs.triggers.toString());
         prefs.copyTo(prefsdb)
-        if(!isPackageInstalled("org.calyxos.datura", packageManager)) {
+        if(!utils.isPackageInstalled("org.calyxos.datura", packageManager)) {
             binding.navigation.menu.removeItem(R.id.nav_networking_group);
         }
     }
@@ -54,18 +65,6 @@ open class MainActivity : AppCompatActivity() {
     private fun init2() {
         NotificationManager(this).createNotificationChannels()
         replaceFragment(StatusFragment())
-    }
-
-    private fun isPackageInstalled(
-        packageName: String,
-        packageManager: PackageManager
-    ): Boolean {
-        return try {
-            packageManager.getPackageInfo(packageName, 0)
-            true
-        } catch (e: PackageManager.NameNotFoundException) {
-            false
-        }
     }
 
     private fun initBiometric(): Boolean {
@@ -160,6 +159,7 @@ open class MainActivity : AppCompatActivity() {
         R.id.nav_status -> StatusFragment()
         R.id.nav_main -> PanicWipeSettingsFragment()
         R.id.nav_trigger_networking -> NetworkingFragment()
+//        R.id.nav_trigger_macspoofing -> MacSpoofingSettingsFragment()
         else -> StatusFragment()
     }
 

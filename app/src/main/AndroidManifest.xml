@@ -8,8 +8,8 @@
     <uses-permission android:name="org.calyxos.datura.permission.CHANGE_SETTINGS"/>
 
     <uses-feature android:name="android.software.device_admin" android:required="true" />
-    <uses-feature android:name="android.hardware.usb.host" android:required="false" />
-    <uses-feature android:name="android.hardware.usb.accessory" android:required="false" />
+    <uses-feature android:name="android.hardware.usb.host" android:required="true" />
+    <uses-feature android:name="android.hardware.usb.accessory" android:required="true" />
 
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
         tools:ignore="QueryAllPackagesPermission" />
@@ -39,11 +39,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Wasted"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        tools:targetApi="s">
+        android:dataExtractionRules="@xml/data_extraction_rules">
 
         <activity
-            android:name="layout.welcome.FirstRunActivity"
+            android:name=".welcome.FirstRunActivity"
             android:label="@string/app_name"
             android:exported="true">
             <intent-filter>
@@ -58,7 +57,6 @@
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
                 <action android:name="org.calyxos.datura.action.enable"/>
                 <action android:name="org.calyxos.datura.action.disable"/>
                 <action android:name="org.calyxos.datura.action.forceVPN"/>
@@ -162,7 +160,7 @@
         <receiver
             android:name=".features.panickwipe.trigger.usb.UsbReceiver"
             android:directBootAware="true"
-            android:enabled="false"
+            android:enabled="true"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
@@ -183,7 +181,7 @@
         <receiver
             android:name=".features.panickwipe.shared.RestartReceiver"
             android:directBootAware="true"
-            android:enabled="false"
+            android:enabled="true"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />

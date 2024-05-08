@@ -2,9 +2,10 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/bg_screen1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.panickwipe.PanicWipeSettingsFragment">
+    tools:context=".features.panickwipe.trigger.notification.NotificationFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -26,88 +27,54 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Panic Wipe Settings"
-                    android:textAppearance="?attr/textAppearanceHeadline6" android:textAlignment="center" />
+                    android:text="Trigger Panic Wipe With USB Data Connection"
+                    android:textAppearance="?attr/textAppearanceHeadline6" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Wipes device on configured triggers."
-                    android:textAppearance="?attr/textAppearanceSubtitle2"
-                    android:textAlignment="center"/>
+                    android:text="@string/trigger_usb_description"
+                    android:textAppearance="?attr/textAppearanceSubtitle2" />
 
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="20dp"/>
 
-                <TextView
-                    android:id="@+id/secret"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/secret_0"
-                    android:padding="16dp"
-                    android:textAlignment="center"
-                    android:textAppearance="?attr/textAppearanceTitleLarge"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="8dp" />
-
                 <CheckBox
-                    android:id="@+id/wipeData"
+                    android:id="@+id/triggerwhenlocked"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
                     android:layoutDirection="rtl"
-                    android:text="@string/wipe_data_checkbox"
+                    android:text="Only When Device Locked"
                     android:textAppearance="?attr/textAppearanceBodyLarge" />
 
-                <Space
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="2dp" />
+                    android:orientation="vertical">
 
-                <CheckBox
-                    android:id="@+id/wipeEmbeddedSim"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
 
-                    android:layoutDirection="rtl"
-                    android:text="@string/wipe_embedded_sim_checkbox"
-                    android:textAppearance="?attr/textAppearanceBodyLarge" />
+                </LinearLayout>
 
             </LinearLayout>
 
         </ScrollView>
+
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
+
             <ToggleButton
                 android:id="@+id/toggle"
-                style="@style/Theme.Wasted.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                 />
+                android:textAppearance="?attr/textAppearanceTitleMedium" />
 
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/triggersettings"
-                style="@style/Theme.Wasted.Button"
-                android:layout_marginHorizontal="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TRIGGER SETTINGS"
-                app:icon="@drawable/ic_baseline_settings_24"
-                app:iconGravity="textStart"
-                />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
