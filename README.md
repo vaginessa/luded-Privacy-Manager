@@ -36,6 +36,8 @@ This Project Aims To Combine:
 - [Network Ghost](https://github.com/souramoo/NetworkGhost)
 - [Find My Device](https://f-droid.org/en/packages/de.nulide.findmydevice/index.html)
 - [AirGaurd](https://f-droid.org/en/packages/de.seemoo.at_tracking_detection/index.html)
+- [FakeTraveler]()
+- [Guerrilla Mail]()
 
 With a more user-friendly interface 
 which allows someone not so technical to configure privacy-friendly features:

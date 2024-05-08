@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.eluded.privacymanager.Preferences
 import com.eluded.privacymanager.R
+import com.eluded.privacymanager.Utils
 import com.eluded.privacymanager.databinding.FragmentTileBinding
 import com.eluded.privacymanager.databinding.FragmentUsbTriggerSettingsBinding
 
@@ -60,12 +61,12 @@ class USBTriggerSettingsFragment : Fragment() {
     }
 
     private fun setup() = binding.apply {
-        toggle.setOnClickListener{
-            prefs.wipeOnUSB = toggle.isChecked;
+        toggle.setOnCheckedChangeListener { _, isChecked ->
+            Utils(ctx).updateWipeOnUSB(isChecked)
         }
 
-        triggerwhenlocked.setOnClickListener{
-            prefs.wipeOnUSBOnlyWhenLocked = triggerwhenlocked.isChecked;
+        triggerwhenlocked.setOnCheckedChangeListener { _, isChecked ->
+            prefs.wipeOnUSBOnlyWhenLocked = isChecked;
         }
     }
 }

@@ -20,6 +20,7 @@ import com.eluded.privacymanager.features.networkingrouting.NetworkingFragment
 import com.eluded.privacymanager.features.panickwipe.PanicWipeSettingsFragment
 import com.eluded.privacymanager.features.panickwipe.shared.ForegroundService
 import com.eluded.privacymanager.features.panickwipe.shared.NotificationManager
+import com.eluded.privacymanager.features.panickwipe.trigger.notification.NotificationListenerService
 import com.eluded.privacymanager.fragment.StatusFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
@@ -43,13 +44,16 @@ open class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         init1()
         if (initBiometric()) return
-        init2()
-        setup()
+
         val serviceIntent = Intent(
             this,
             ForegroundService::class.java
         )
+        NotificationManager(this).createNotificationChannels()
         ContextCompat.startForegroundService(this, serviceIntent);
+        ContextCompat.startForegroundService(this, Intent(this, NotificationListenerService::class.java));
+        init2()
+        setup()
     }
 
     private fun init1() {
@@ -63,7 +67,6 @@ open class MainActivity : AppCompatActivity() {
     }
 
     private fun init2() {
-        NotificationManager(this).createNotificationChannels()
         replaceFragment(StatusFragment())
     }
 
