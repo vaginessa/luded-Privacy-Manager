@@ -27,12 +27,13 @@ jobs:
         uses: chkfung/android-version-actions@v1.1
         with:
           gradlePath: app/build.gradle
-          versionName: "DEBUG - ${{ steps.short-sha.outputs.sha }}"
+          versionName: "${{ github.ref }}"
 
       - name: Build Debug APK
         run: |
           chmod +x ./gradlew
-          ./gradlew assembleDebug
+          ./gradlew build
+          ls -l app/build/outputs/apk/release
 
       - name: release
         uses: actions/create-release@v1
@@ -51,7 +52,7 @@ jobs:
             GITHUB_TOKEN: ${{ github.token }}
         with:
             upload_url: ${{ steps.create_release.outputs.upload_url }}
-            asset_path: ./app/build/outputs/apk/debug/app-debug.apk
-            asset_name: debug.apk
+            asset_path: ./app/build/outputs/apk/release/app-release-unsigned.apk
+            asset_name: ${{ steps.version.outputs.version }}.apk
             asset_content_type: application/gzip
        
