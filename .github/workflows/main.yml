@@ -27,12 +27,13 @@ jobs:
         uses: chkfung/android-version-actions@v1.1
         with:
           gradlePath: app/build.gradle
-          versionName: "DEBUG - ${{ steps.short-sha.outputs.sha }}"
+          versionName: "${{ github.ref }}"
 
       - name: Build Debug APK
         run: |
           chmod +x ./gradlew
-          ./gradlew assembleDebug
+          ./gradlew build
+          ls -l app/build/outputs/apk/release
 
       - name: release
         uses: actions/create-release@v1
